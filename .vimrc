@@ -172,12 +172,12 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/ludovicchabant/vim-lawrencium'
+Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'gabesoft/vim-ags'
 Plug 'sjl/gundo.vim'
-Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
 Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'skywind3000/asyncrun.vim'
@@ -187,6 +187,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'dense-analysis/ale'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -202,3 +203,9 @@ let g:asyncrun_open = 8
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" Disable LSP diagnostics support
+let g:lsp_diagnostics_enabled = 0
+
+" Enable airline ALE integration
+let g:airline#extensions#ale#enabled = 1
