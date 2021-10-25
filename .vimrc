@@ -172,7 +172,6 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/ludovicchabant/vim-lawrencium'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
