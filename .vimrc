@@ -115,6 +115,16 @@ set autoread
 " :Hgstatus
 " :Hg commit - Executes hg
 
+" Abolish
+" crs - Coerce to snake_case.
+" crm - Coerce to MixedCase.
+" crc - Coerce to camelCase.
+" cru - Coerce to UPPER_CASE.
+" cr- - Coerce to dash-case.
+" cr. - Coerce to dot.case.
+" cr<space> - Coerce to space case.
+" crt - Coerce to Title Case.
+
 " Commentary
 " [count]gcc - Comment out [count] lines
 " gc[motion] - Comment out [motion] lines
@@ -142,6 +152,7 @@ Plug 'https://github.com/ludovicchabant/vim-lawrencium'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 
 function! BuildYCM(info)
