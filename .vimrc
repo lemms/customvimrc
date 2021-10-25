@@ -100,6 +100,28 @@ set autoread
 " ul#nav>li.item$*4{Item $} <c-y>, - Create an unordered list with 4 items
 " See docs.emmet.io for details.
 
+" Ack
+" Run ack in vim:
+" :Ack [options] {pattern} [{directories}]
+
+" Fugitive
+" Adds git support
+" :Git status
+" :Git diff
+
+" Lawrencium
+" Adds Mercurial support
+" :Hgvdiff
+" :Hgstatus
+" :Hg commit - Executes hg
+
+" Commentary
+" [count]gcc - Comment out [count] lines
+" gc[motion] - Comment out [motion] lines
+" [Visual mode] gc - Comment out visual block
+" :g/[regex]/Commentary - Comment out line containing [regex]
+" :1,6Commentary - Comment out lines 1-6
+
 call plug#begin()
 
 Plug 'https://github.com/xolox/vim-misc'
@@ -112,6 +134,15 @@ Plug 'https://github.com/universal-ctags/ctags'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'mattn/emmet-vim'
 Plug 'https://github.com/adelarsq/vim-matchit'
+Plug 'itchyny/lightline.vim'
+Plug 'https://github.com/jiangmiao/auto-pairs'
+Plug 'mileszs/ack.vim'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/ludovicchabant/vim-lawrencium'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -128,4 +159,8 @@ Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
 
 let g:rainbow_active = 1
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
 runtime macros/matchit.vim
