@@ -151,6 +151,11 @@ set wildmode=longest:full,full
 " AsyncRun
 " :AsyncRun <terminal command> - Run <terminal command> asynchronously
 
+" Language server protocol
+" To install a LSP for your file, open the file in vim and type
+" :LspInstallServer
+" To uninstall a LSP type :LspUninstallServer <server name>
+
 call plug#begin()
 
 Plug 'https://github.com/xolox/vim-misc'
@@ -177,28 +182,24 @@ Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
 Plug 'mhinz/vim-signify'
 Plug 'qpkorr/vim-bufkill'
 Plug 'skywind3000/asyncrun.vim'
-
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer --racer-completer --tern-completer
-  endif
-endfunction
-
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
 let g:rainbow_active = 1
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
 
 runtime macros/matchit.vim
 
 nnoremap <F5> :GundoToggle<CR>
 
 let g:asyncrun_open = 8
+
+" Tab completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
