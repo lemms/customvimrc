@@ -57,6 +57,19 @@ filetype plugin indent on
 " Auto update file when it's changed outside Vim
 set autoread
 
+" Using vim-plug for plugin management
+"
+" Unix:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" Windows:
+" iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"    ni $HOME/vimfiles/autoload/plug.vim -Force
+"
+" Run :PlugInstall to install plugins
+
+
 " Navigating ctags
 " :tn - Move to next definition
 " :tn - Move to previous definition
