@@ -58,7 +58,7 @@ filetype plugin indent on
 set autoread
 
 " Highlight cursor line number only
-hi CursorLineNr cterm=bold guifg=#af00af
+hi CursorLineNr cterm=bold ctermfg=red guifg=#af00af
 set cursorline
 set cursorlineopt=number
 
