@@ -57,6 +57,15 @@ filetype plugin indent on
 " Auto update file when it's changed outside Vim
 set autoread
 
+" Highlight cursor line number only
+hi CursorLineNr cterm=bold guifg=#af00af
+set cursorline
+set cursorlineopt=number
+
+" Enable command line completion
+set wildmenu
+set wildmode=longest:full,full
+
 " Using vim-plug for plugin management
 "
 " Unix:
@@ -68,7 +77,6 @@ set autoread
 "    ni $HOME/vimfiles/autoload/plug.vim -Force
 "
 " Run :PlugInstall to install plugins
-
 
 " Navigating ctags
 " :tn - Move to next definition
@@ -115,15 +123,9 @@ set autoread
 " :Hgstatus
 " :Hg commit - Executes hg
 
-" Abolish
-" crs - Coerce to snake_case.
-" crm - Coerce to MixedCase.
-" crc - Coerce to camelCase.
-" cru - Coerce to UPPER_CASE.
-" cr- - Coerce to dash-case.
-" cr. - Coerce to dot.case.
-" cr<space> - Coerce to space case.
-" crt - Coerce to Title Case.
+" Fuzzy File Search
+" :Files - Open files search
+" :GFiles - Open git files
 
 " Commentary
 " [count]gcc - Comment out [count] lines
@@ -132,28 +134,49 @@ set autoread
 " :g/[regex]/Commentary - Comment out line containing [regex]
 " :1,6Commentary - Comment out lines 1-6
 
+" Silver Searcher
+" :Ags [{file-type}] [{options}] {pattern} [{directory}] - Search in {directory} for {pattern}.
+
+" Gundo
+" [Press F5] - Opens gundo
+
+" Buffkill
+" :BUN - Unload file from buffer but keep window/split
+" :BD - Delete file from buffer and keep window/split
+" :BW - Wipe file from buffer and keep window/split
+" :BB - Move backwards through recent buffers
+" :BF - Move forwards through recent buffers
+" :BA - Move to alternate buffer keeping cursor in the same column
+
+" AsyncRun
+" :AsyncRun <terminal command> - Run <terminal command> asynchronously
+
 call plug#begin()
 
 Plug 'https://github.com/xolox/vim-misc'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'f4t-t0ny/nerdtree-hg-plugin'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 Plug 'frazrepo/vim-rainbow'
-Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/universal-ctags/ctags'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'mattn/emmet-vim'
 Plug 'https://github.com/adelarsq/vim-matchit'
-Plug 'itchyny/lightline.vim'
 Plug 'https://github.com/jiangmiao/auto-pairs'
-Plug 'mileszs/ack.vim'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/ludovicchabant/vim-lawrencium'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
+Plug 'gabesoft/vim-ags'
+Plug 'sjl/gundo.vim'
+Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
+Plug 'mhinz/vim-signify'
+Plug 'qpkorr/vim-bufkill'
+Plug 'skywind3000/asyncrun.vim'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -175,3 +198,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd
 let g:ycm_confirm_extra_conf = 0
 
 runtime macros/matchit.vim
+
+nnoremap <F5> :GundoToggle<CR>
+
+let g:asyncrun_open = 8
