@@ -191,8 +191,6 @@ Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
-let g:rainbow_active = 1
-
 runtime macros/matchit.vim
 
 nnoremap <F5> :GundoToggle<CR>
