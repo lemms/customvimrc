@@ -163,7 +163,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'f4t-t0ny/nerdtree-hg-plugin'
 Plug 'https://github.com/vim-scripts/taglist.vim'
-Plug 'frazrepo/vim-rainbow'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/universal-ctags/ctags'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
@@ -188,6 +187,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
@@ -209,3 +209,6 @@ let g:lsp_diagnostics_enabled = 0
 
 " Enable airline ALE integration
 let g:airline#extensions#ale#enabled = 1
+
+" Enable codedark color scheme
+colorscheme codedark
