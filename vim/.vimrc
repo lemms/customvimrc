@@ -209,3 +209,6 @@ let g:airline#extensions#ale#enabled = 1
 
 " Enable codedark color scheme
 colorscheme codedark
+
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :TlistToggle<CR>
