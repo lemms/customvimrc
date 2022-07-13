@@ -212,3 +212,12 @@ colorscheme codedark
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>t :TlistToggle<CR>
+
+" Search for the word under cursor
+nnoremap <leader>s :Ags<space><C-R>=expand('<cword>')<CR><CR>
+" Search for the visually selected text
+vnoremap <leader>s y:Ags<space><C-R>='"' . escape(@", '"*?()[]{}.') . '"'<CR><CR>
+" Run Ags
+nnoremap <leader>a :Ags<space>
+" Quit Ags
+nnoremap <leader><leader>a :AgsQuit<CR>
