@@ -68,3 +68,6 @@ set wildmode=longest:full,full
 
 " Enable codedark color scheme
 colorscheme codedark
+
+set list
+set listchars=tab:>-

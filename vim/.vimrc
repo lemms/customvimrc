@@ -221,3 +221,6 @@ vnoremap <leader>s y:Ags<space><C-R>='"' . escape(@", '"*?()[]{}.') . '"'<CR><CR
 nnoremap <leader>a :Ags<space>
 " Quit Ags
 nnoremap <leader><leader>a :AgsQuit<CR>
+
+set list
+set listchars=tab:>-
