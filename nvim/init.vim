@@ -69,5 +69,52 @@ set wildmode=longest:full,full
 " Speed up scrolling
 set ttyfast
 
+" Using vim-plug for plugin management
+"
+" Unix:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" Windows:
+" iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"    ni $HOME/vimfiles/autoload/plug.vim -Force
+"
+" Run :PlugInstall to install plugins
+
+" Navigating ctags
+" :tn - Move to next definition
+" :tn - Move to previous definition
+" :tn - List all definitions
+" ^] - Jump to definition
+" ^t - Jump back from definition
+" ^W} - Preview definition
+" g] - See all definitions
+"
+" https://ricostacruz.com/til/navigate-code-with-ctags
+"
+" Language server protocol
+" To install a LSP for your file, open the file in vim and type
+" :LspInstallServer
+" To uninstall a LSP type :LspUninstallServer <server name>
+
+call plug#begin()
+
+Plug 'https://github.com/universal-ctags/ctags'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tomasiser/vim-code-dark'
+
+call plug#end()
+
+" Disable LSP diagnostics support
+let g:lsp_diagnostics_enabled = 0
+
+" Enable codedark color scheme
+colorscheme codedark
+
 set list
 set listchars=tab:>-
